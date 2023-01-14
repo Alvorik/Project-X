@@ -3,13 +3,13 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "Project X",
-    LoadingTitle = "Project X ",
-    LoadingSubtitle = "by Alvorik",
+    Name = "Project Valix",
+    LoadingTitle = "Project Valix | V2",
+    LoadingSubtitle = "by Admins, HeadAdmin in the discord server",
     ConfigurationSaving = {
        Enabled = true,
        FolderName = nil, -- Create a custom folder for your hub/game
-       FileName = "Project X"
+       FileName = "Project Valix"
     },
     Discord = {
        Enabled = true,
@@ -18,18 +18,18 @@ local Window = Rayfield:CreateWindow({
     },
     KeySystem = true, -- Set this to true to use our key system
     KeySettings = {
-       Title = "Project X",
+       Title = "Project Valix | V2",
        Subtitle = "Key System",
        Note = "Join (discord.gg/t7sXgFNmgq) for the key.",
        FileName = "ProjectKey",
-       SaveKey = false,
+       SaveKey = true,
        GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
        Key = "https://pastebin.com/raw/F5JGWRXk"
     }
 })
 
-local Menu = Window:CreateTab("Menu") -- Title, Image
-local MenuSection = Menu:CreateSection("Menu Section")
+local Menu = Window:CreateTab("Home") -- Title, Image
+local MenuSection = Menu:CreateSection("Home Section")
 
 local infiniteyield = Menu:CreateButton({
     Name = "Infinite Yield",
@@ -79,7 +79,16 @@ local JoinDisco = Menu:CreateButton({
 local ScriptMaker = Menu:CreateButton({
     Name = "Script Maker 2000",
     Callback = function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/iLBHxzrP'),true))()
+        local owner = "Upbolt"
+        local branch = "revision"
+        
+        local function webImport(file)
+            return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+        end
+        
+        webImport("init")
+        webImport("ui/main")    
+    
     end,
 })
 
@@ -932,7 +941,73 @@ elseif game.PlaceId == 4620170611 then
          end,
     })
 
+elseif game.PlaceId == 3851622790 then
+    local BreakeIn = Window:CreateTab("Break In") -- Title, Image
+    local BreakInSection = BreakeIn:CreateSection("Break In Section")
+
+    local Apple = BreakeIn:CreateButton({
+        Name = "Give Apple",
+        Callback = function()
+            local args = {
+                [1] = "Apple"
+            }
+            
+            game:GetService("ReplicatedStorage").RemoteEvents.GiveTool:FireServer(unpack(args))
+        end,
+    })
+
+    local GivLePizza = BreakeIn:CreateButton({
+        Name = "Give Pizza",
+        Callback = function()
+            local args = {
+                [1] = "Pizza1"
+            }
+            
+            game:GetService("ReplicatedStorage").RemoteEvents.GiveTool:FireServer(unpack(args))
+        end,
+    })
+
+    local GiveCookee = BreakeIn:CreateButton({
+        Name = "Give Cookie",
+        Callback = function()
+               local args = {
+                    [1] = "Cookie"
+                }
+            
+                game:GetService("ReplicatedStorage").RemoteEvents.GiveTool:FireServer(unpack(args))
+           end,
+    })
+
+    local BMoney = BreakeIn:CreateButton({
+        Name = "Give Money",
+        Callback = function()
+            local args = {
+                [1] = workspace.Money3
+            }
+            
+            game:GetService("ReplicatedStorage").RemoteEvents.FoundMoney:FireServer(unpack(args))
+            
+        end,
+    })
+
+
+    local Plankton = BreakeIn:CreateButton({
+        Name = "Give Plank",
+        Callback = function()
+            local args = {
+                [1] = "Plank"
+            }
+            
+            game:GetService("ReplicatedStorage").RemoteEvents.GiveTool:FireServer(unpack(args))
+         end,
+    })
+
+elseif game.PlaceId == 4246487209 then
+    local Bossf = Window:CreateTab("Boss Fighting") -- Title, Image
+    local BreakInSection = BreakeIn:CreateSection("Boss Fighting Section")
 
 
 
+
+    
 end
